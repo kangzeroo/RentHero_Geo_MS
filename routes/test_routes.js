@@ -10,7 +10,7 @@ exports.test_nearby = function(req, res, next) {
   const info = req.body
   let ad
 
-    axios.post(`https://maps.googleapis.com/maps/api/place/textsearch/json?query=dog+store&location=${info.gps_x},${info.gps_y}&radius=2000&key=AIzaSyCh3Q0Z_1WFRpRrpNz-j1h81wp9EyuNuhg`)
+    axios.post(`https://maps.googleapis.com/maps/api/place/textsearch/json?query=food&location=${info.gps_x},${info.gps_y}&radius=2000&key=AIzaSyCh3Q0Z_1WFRpRrpNz-j1h81wp9EyuNuhg`)
     .then((data) => {
       const results = data.data.results
       res.json(results)

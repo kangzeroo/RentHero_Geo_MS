@@ -44,11 +44,11 @@ module.exports = function(app){
 	app.post('/get_nearby_gas_station', json_encoding, AutomotiveRoutes.get_nearby_gas_station)
 
 	// Shopping Routes
-	app.post('/get_nearby_convenience_store', json_encoding, ShoppingRoutes.get_nearby_convenience_store)
-	app.post('/get_nearby_liquor_store', json_encoding, ShoppingRoutes.get_nearby_liquor_store)
-	app.post('/get_nearby_hardware_store', json_encoding, ShoppingRoutes.get_nearby_hardware_store)
+	// app.post('/get_nearby_convenience_store', json_encoding, ShoppingRoutes.get_nearby_convenience_store)
+	// app.post('/get_nearby_liquor_store', json_encoding, ShoppingRoutes.get_nearby_liquor_store)
+	// app.post('/get_nearby_hardware_store', json_encoding, ShoppingRoutes.get_nearby_hardware_store)
 	app.post('/get_nearby_store', json_encoding, ShoppingRoutes.get_nearby_store)
-	app.post('/get_nearby_supermarket', json_encoding, ShoppingRoutes.get_nearby_supermarket)
+	app.post('/get_nearby_mall', json_encoding, ShoppingRoutes.get_nearby_mall)
 
 	// Education Routes
 	app.post('/get_nearby_library', json_encoding, EducationRoutes.get_nearby_library)
@@ -60,7 +60,7 @@ module.exports = function(app){
 	app.post('/get_nearby_night_club', json_encoding, LeisureRoutes.get_nearby_night_club)
 
 	// Banking Routes
-	app.post('/get_nearby_atm', json_encoding, BankingRoutes.get_nearby_atm)
+	// app.post('/get_nearby_atm', json_encoding, BankingRoutes.get_nearby_atm)
 	app.post('/get_nearby_bank', json_encoding, BankingRoutes.get_nearby_bank)
 
 }

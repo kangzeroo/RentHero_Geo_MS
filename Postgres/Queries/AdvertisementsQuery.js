@@ -21,7 +21,7 @@ exports.get_ad_from_session = (session_id) => {
                                CONCAT(street_code, ' ', street_name, ', ', city) AS ad_address
                           FROM address
                       ) c
-                      ON a.addess_id = c.address_id
+                      ON a.address_id = c.address_id
                       WHERE b.session_id = $1
                     `
 
