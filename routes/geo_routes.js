@@ -7,8 +7,10 @@ exports.get_nearby_restaurants = function(req, res, next) {
 
   get_ad_from_session(info.session.slice(req.body.session.indexOf('/sessions/') + '/sessions/'.length))
     .then((data) => {
+      console.log(data)
       ad = data
-      return axios.post(`https://maps.googleapis.com/maps/api/place/textsearch/json?location=${data.gps_x},${data.gps_y}&radius=1500&type=restaurant&key=AIzaSyCh3Q0Z_1WFRpRrpNz-j1h81wp9EyuNuhg`)
+      console.log(info.queryResult.parameters.Food)
+      return axios.post(`https://maps.googleapis.com/maps/api/place/textsearch/json?query=${info.queryResult.parameters.Food.toLowerCase().replace(' ', '+')}&location=${data.gps_x},${data.gps_y}&radius=2000&type=restaurant&key=AIzaSyCh3Q0Z_1WFRpRrpNz-j1h81wp9EyuNuhg`)
     })
     .then((data) => {
       const results = data.data.results
@@ -31,7 +33,7 @@ exports.get_nearby_beauty_salon = function(req, res, next) {
   get_ad_from_session(info.session.slice(req.body.session.indexOf('/sessions/') + '/sessions/'.length))
     .then((data) => {
       ad = data
-      return axios.post(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${info.gps_x},${info.gps_y}&radius=5000&type=beauty_salon&key=AIzaSyCh3Q0Z_1WFRpRrpNz-j1h81wp9EyuNuhg`)
+      return axios.post(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${data.gps_x},${data.gps_y}&radius=5000&type=beauty_salon&key=AIzaSyCh3Q0Z_1WFRpRrpNz-j1h81wp9EyuNuhg`)
     })
     .then((data) => {
       const results = data.data.results
@@ -59,7 +61,7 @@ exports.get_nearby_church = function(req, res, next) {
   get_ad_from_session(info.session.slice(req.body.session.indexOf('/sessions/') + '/sessions/'.length))
     .then((data) => {
       ad = data
-      return axios.post(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${info.gps_x},${info.gps_y}&radius=5000&type=church&key=AIzaSyCh3Q0Z_1WFRpRrpNz-j1h81wp9EyuNuhg`)
+      return axios.post(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${data.gps_x},${data.gps_y}&radius=5000&type=church&key=AIzaSyCh3Q0Z_1WFRpRrpNz-j1h81wp9EyuNuhg`)
     })
     .then((data) => {
       const results = data.data.results
@@ -87,7 +89,7 @@ exports.get_nearby_hospital = function(req, res, next) {
   get_ad_from_session(info.session.slice(req.body.session.indexOf('/sessions/') + '/sessions/'.length))
     .then((data) => {
       ad = data
-      return axios.post(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${info.gps_x},${info.gps_y}&radius=5000&type=hospital&key=AIzaSyCh3Q0Z_1WFRpRrpNz-j1h81wp9EyuNuhg`)
+      return axios.post(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${data.gps_x},${data.gps_y}&radius=5000&type=hospital&key=AIzaSyCh3Q0Z_1WFRpRrpNz-j1h81wp9EyuNuhg`)
     })
     .then((data) => {
       const results = data.data.results
@@ -115,7 +117,7 @@ exports.get_nearby_police = function(req, res, next) {
   get_ad_from_session(info.session.slice(req.body.session.indexOf('/sessions/') + '/sessions/'.length))
     .then((data) => {
       ad = data
-      return axios.post(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${info.gps_x},${info.gps_y}&radius=2500&type=police&key=AIzaSyCh3Q0Z_1WFRpRrpNz-j1h81wp9EyuNuhg`)
+      return axios.post(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${data.gps_x},${data.gps_y}&radius=2500&type=police&key=AIzaSyCh3Q0Z_1WFRpRrpNz-j1h81wp9EyuNuhg`)
     })
     .then((data) => {
       const results = data.data.results
@@ -143,7 +145,7 @@ exports.get_nearby_fire_station = function(req, res, next) {
   get_ad_from_session(info.session.slice(req.body.session.indexOf('/sessions/') + '/sessions/'.length))
     .then((data) => {
       ad = data
-      return axios.post(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${info.gps_x},${info.gps_y}&radius=2500&type=fire_station&key=AIzaSyCh3Q0Z_1WFRpRrpNz-j1h81wp9EyuNuhg`)
+      return axios.post(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${data.gps_x},${data.gps_y}&radius=2500&type=fire_station&key=AIzaSyCh3Q0Z_1WFRpRrpNz-j1h81wp9EyuNuhg`)
     })
     .then((data) => {
       const results = data.data.results

@@ -8,7 +8,7 @@ exports.get_nearby_parking = function(req, res, next) {
   get_ad_from_session(info.session.slice(req.body.session.indexOf('/sessions/') + '/sessions/'.length))
     .then((data) => {
       ad = data
-      return axios.post(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${info.gps_x},${info.gps_y}&radius=2500&type=parking&key=AIzaSyCh3Q0Z_1WFRpRrpNz-j1h81wp9EyuNuhg`)
+      return axios.post(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${data.gps_x},${data.gps_y}&radius=2500&type=parking&key=AIzaSyCh3Q0Z_1WFRpRrpNz-j1h81wp9EyuNuhg`)
     })
     .then((data) => {
       const results = data.data.results
@@ -36,7 +36,7 @@ exports.get_nearby_gas_station = function(req, res, next) {
   get_ad_from_session(info.session.slice(req.body.session.indexOf('/sessions/') + '/sessions/'.length))
     .then((data) => {
       ad = data
-      return axios.post(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${info.gps_x},${info.gps_y}&radius=2500&type=gas_station&key=AIzaSyCh3Q0Z_1WFRpRrpNz-j1h81wp9EyuNuhg`)
+      return axios.post(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${data.gps_x},${data.gps_y}&radius=2500&type=gas_station&key=AIzaSyCh3Q0Z_1WFRpRrpNz-j1h81wp9EyuNuhg`)
     })
     .then((data) => {
       const results = data.data.results
