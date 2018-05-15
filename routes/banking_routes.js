@@ -22,6 +22,11 @@ exports.get_nearby_bank = function(req, res, next) {
         fulfillmentText: response,
         fulfillmentMessages: [],
         outputContexts: [],
+        payload: {
+          type: 'locations',
+          results: results,
+          text: response,
+        }
       })
     })
     .catch((err) => {

@@ -10,15 +10,20 @@ exports.get_nearby_restaurants = function(req, res, next) {
       console.log(data)
       ad = data
       console.log(info.queryResult.parameters.Food)
-      return axios.post(`https://maps.googleapis.com/maps/api/place/textsearch/json?query=${info.queryResult.parameters.Food.toLowerCase().replace(' ', '+')}&location=${data.gps_x},${data.gps_y}&radius=2000&type=restaurant&key=AIzaSyCh3Q0Z_1WFRpRrpNz-j1h81wp9EyuNuhg`)
+      return axios.post(`https://maps.googleapis.com/maps/api/place/textsearch/json?query=${info.queryResult.parameters.Food.toLowerCase().replace(' ', '+')}&location=${data.gps_x},${data.gps_y}&radius=1000&type=restaurant&key=AIzaSyCh3Q0Z_1WFRpRrpNz-j1h81wp9EyuNuhg`)
     })
     .then((data) => {
       const results = data.data.results
-      const response = `There are ${results.length} restaurants close by to ${ad.ad_title}, They are ${results.map((result) => { return `${result.name}\n`})}`
+      const response = `There are ${results.length} restaurants for "${info.queryResult.parameters.Food}" close to ${ad.ad_title}`
       res.json({
         fulfillmentText: response,
         fulfillmentMessages: [],
         outputContexts: [],
+        payload: {
+          type: 'locations',
+          results: results,
+          text: response,
+        }
       })
     })
     .catch((err) => {
@@ -47,6 +52,11 @@ exports.get_nearby_beauty_salon = function(req, res, next) {
         fulfillmentText: response,
         fulfillmentMessages: [],
         outputContexts: [],
+        payload: {
+          type: 'locations',
+          results: results,
+          text: response,
+        }
       })
     })
     .catch((err) => {
@@ -75,6 +85,11 @@ exports.get_nearby_church = function(req, res, next) {
         fulfillmentText: response,
         fulfillmentMessages: [],
         outputContexts: [],
+        payload: {
+          type: 'locations',
+          results: results,
+          text: response,
+        }
       })
     })
     .catch((err) => {
@@ -103,6 +118,11 @@ exports.get_nearby_hospital = function(req, res, next) {
         fulfillmentText: response,
         fulfillmentMessages: [],
         outputContexts: [],
+        payload: {
+          type: 'locations',
+          results: results,
+          text: response,
+        }
       })
     })
     .catch((err) => {
@@ -131,6 +151,11 @@ exports.get_nearby_police = function(req, res, next) {
         fulfillmentText: response,
         fulfillmentMessages: [],
         outputContexts: [],
+        payload: {
+          type: 'locations',
+          results: results,
+          text: response,
+        }
       })
     })
     .catch((err) => {
@@ -159,6 +184,11 @@ exports.get_nearby_fire_station = function(req, res, next) {
         fulfillmentText: response,
         fulfillmentMessages: [],
         outputContexts: [],
+        payload: {
+          type: 'locations',
+          results: results,
+          text: response,
+        }
       })
     })
     .catch((err) => {

@@ -22,6 +22,11 @@ exports.get_nearby_bar = function(req, res, next) {
         fulfillmentText: response,
         fulfillmentMessages: [],
         outputContexts: [],
+        payload: {
+          type: 'locations',
+          results: results,
+          text: response,
+        }
       })
     })
     .catch((err) => {
@@ -50,6 +55,11 @@ exports.get_nearby_movie_theatre = function(req, res, next) {
         fulfillmentText: response,
         fulfillmentMessages: [],
         outputContexts: [],
+        payload: {
+          type: 'locations',
+          results: results,
+          text: response,
+        }
       })
     })
     .catch((err) => {
@@ -78,6 +88,11 @@ exports.get_nearby_park = function(req, res, next) {
         fulfillmentText: response,
         fulfillmentMessages: [],
         outputContexts: [],
+        payload: {
+          type: 'locations',
+          results: results,
+          text: response,
+        }
       })
     })
     .catch((err) => {
@@ -106,6 +121,11 @@ exports.get_nearby_night_club = function(req, res, next) {
         fulfillmentText: response,
         fulfillmentMessages: [],
         outputContexts: [],
+        payload: {
+          type: 'locations',
+          results: results,
+          text: response,
+        }
       })
     })
     .catch((err) => {
