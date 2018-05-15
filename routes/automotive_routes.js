@@ -22,6 +22,11 @@ exports.get_nearby_parking = function(req, res, next) {
         fulfillmentText: response,
         fulfillmentMessages: [],
         outputContexts: [],
+        payload: {
+          type: 'locations',
+          results: results,
+          text: response,
+        }
       })
     })
     .catch((err) => {
@@ -50,6 +55,11 @@ exports.get_nearby_gas_station = function(req, res, next) {
         fulfillmentText: response,
         fulfillmentMessages: [],
         outputContexts: [],
+        payload: {
+          type: 'locations',
+          results: results,
+          text: response,
+        }
       })
     })
     .catch((err) => {

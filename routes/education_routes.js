@@ -22,6 +22,11 @@ exports.get_nearby_library = function(req, res, next) {
         fulfillmentText: response,
         fulfillmentMessages: [],
         outputContexts: [],
+        payload: {
+          type: 'locations',
+          results: results,
+          text: response,
+        }
       })
     })
     .catch((err) => {
@@ -53,6 +58,11 @@ exports.get_nearby_school = function(req, res, next) {
         fulfillmentText: response,
         fulfillmentMessages: [],
         outputContexts: [],
+        payload: {
+          type: 'locations',
+          results: results,
+          text: response,
+        }
       })
     })
     .catch((err) => {
