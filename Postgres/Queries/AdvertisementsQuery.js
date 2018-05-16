@@ -14,7 +14,7 @@ exports.get_ad_from_session = (session_id) => {
 
     const get_ad = `SELECT a.ad_id, a.ad_title, c.gps_x, c.gps_y, c.formatted_address, c.ad_address
                       FROM advertisements a
-                      INNER JOIN chat_session_ad b
+                      INNER JOIN sessions b
                       ON a.ad_id = b.ad_id
                       INNER JOIN (
                         SELECT address_id, gps_x, gps_y, formatted_address,
