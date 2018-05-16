@@ -14,7 +14,7 @@ exports.get_nearby_bank = function(req, res, next) {
       const results = data.data.results
       let response
       if (results && results.length > 0) {
-        response = `There are ${results.length} banks within walking distance of ${ad.ad_title}. They are ${results.map((result) => { return `${result.name}\n`})}`
+        response = `There are ${results.length} banks within walking distance of ${ad.ad_title}.`
       } else {
         response = `There are no banks in a 3 km radius :(`
       }
