@@ -14,7 +14,7 @@ exports.get_nearby_library = function(req, res, next) {
       const results = data.data.results
       let response
       if (results && results.length > 0) {
-        response = `There are ${results.length} libraries near by ${ad.ad_title}.\nThey are ${results.map((result) => `${result.name}\n`)}`
+        response = `There are ${results.length} libraries near by ${ad.ad_title}.`
       } else {
         response = `There are no libraries in a 2.5 km radius :(`
       }
@@ -50,7 +50,7 @@ exports.get_nearby_school = function(req, res, next) {
       const results = data.data.results
       let response
       if (results && results.length > 0) {
-        response = `There are ${results.length} schools near by ${ad.ad_title}.\nThey are ${results.map((result) => `${result.name}\n`)}`
+        response = `There are ${results.length} schools near by ${ad.ad_title}.`
       } else {
         response = `There are no schools in a 2.5 km radius :(`
       }
